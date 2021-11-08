@@ -1,0 +1,33 @@
+---
+molecule_exceptions:
+  - variation: debian9
+    reason: "Not used as a Desktop OS by me"
+  - variation: debian10
+    reason: "Not used as a Desktop OS by me"
+  - variation: debian11
+    reason: "Not used as a Desktop OS by me"
+  - variation: ubuntu1804
+    reason: "Not used as a Desktop OS by me"
+  - variation: ubuntu2004
+    reason: "Not used as a Desktop OS by me"
+  - variation: centos7
+    reason: "Not used as a Desktop OS by me"
+  - variation: centos8
+    reason: "Not used as a Desktop OS by me"
+  - variation: centos8-stream
+    reason: "Not used as a Desktop OS by me"
+  - variation: ubi8
+    reason: "Not used as a Desktop OS by me"
+  - variation: rockylinux8
+    reason: "Not used as a Desktop OS by me"
+  - variation: almalinux8
+    reason: "Not used as a Desktop OS by me"
+  - variation: amazonlinux
+    reason: "Not used as a Desktop OS by me"
+molecule_scenarios:
+  - scenario: "default"
+    ansible: ["2.9", "2.10", "2.11"]
+    platforms:
+      - "fedora33"
+      - "fedora34"
+      - "fedora35"

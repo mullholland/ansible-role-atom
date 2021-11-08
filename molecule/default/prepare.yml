@@ -1,0 +1,13 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Debian/Ubuntu | Install cron for Backupscript
+      package:
+        name:
+          - "ca-certificates"
+        state: latest
+      when: ansible_os_family == "Debian"

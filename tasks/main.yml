@@ -1,0 +1,9 @@
+---
+- name: include install
+  include: install.yml
+
+- name: include install-packages
+  include: install-packages.yml
+
+- name: include write-config
+  include: write-config.yml

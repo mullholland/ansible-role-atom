@@ -1,0 +1,20 @@
+---
+- name: Import atom repository key
+  ansible.builtin.rpm_key:
+    state: present
+    key: "https://packagecloud.io/AtomEditor/atom/gpgkey"
+
+- name: Add atom repository
+  ansible.builtin.yum_repository:
+    name: "AtomEditor"
+    description: "Atom Editor repo"
+    baseurl: "https://packagecloud.io/AtomEditor/atom/el/7/$basearch"
+    enabled: true
+    gpgcheck: false
+    repo_gpgcheck: true
+    gpgkey: "https://packagecloud.io/AtomEditor/atom/gpgkey"
+
+- name: Install atom
+  ansible.builtin.yum:
+    name: "atom"
+    state: present

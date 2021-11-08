@@ -1,0 +1,46 @@
+---
+# Install follows
+# https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux
+# Install and configres personal atom.io editor
+atom_packages:
+  - docker
+  - linter
+  - linter-ansible-linting
+  - linter-terraform-syntax
+  - linter-yaml
+  - zentabs
+  - pp-markdown
+  - editorconfig
+  - atom-python-virtualenv
+  - terraform-fmt
+
+atom_config:
+  '*':
+    autosave:
+      enabled: true
+    core:
+      openEmptyEditorOnStart: false
+      projectHome: '~/atom'
+      telemetryConsent: "no"
+    editor:
+      showIndentGuide: true
+      showInvisibles: true
+      tabType: "soft"
+    "exception-reporting":
+      userId: "1ead1e75-512e-4162-bd55-4f3a5e5cd218"
+    "linter-ansible-linting":
+      ansibleLintExecutablePath: "/home/sebweiss/.virtualenvs/ansible/bin/ansible-lint"
+      useProjectConfig: true
+    "linter-yaml":
+      useProjectConfig: ".yamllint"
+      yamlLintExecutablePath: "/home/sebweiss/.virtualenvs/ansible/bin/yamllint"
+    welcome:
+      showOnStartup: false
+    zentabs:
+      neverCloseDirty: true
+    terraform-fmt:
+      binPath: "terraform"
+      fmtOnSave: true
+
+# By default the config file will not be overwritten
+atom_config_overwrite: true

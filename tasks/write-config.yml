@@ -1,0 +1,14 @@
+---
+- name: create config directory
+  ansible.builtin.file:
+    path: '~/.atom'
+    state: directory
+    mode: '0750'
+
+- name: write config
+  ansible.builtin.template:
+    src: config.cson.j2
+    dest: '~/.atom/config.cson'
+    force: '{{ atom_config_overwrite | default(False) }}'
+    backup: '{{ atom_config_overwrite | default(False) }}'
+    mode: '0640'

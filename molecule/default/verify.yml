@@ -1,0 +1,51 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: SmokeTests
+      ansible.builtin.debug:
+        msg:
+          - "ansible_version => {{ansible_version}}"
+          - "ansible_distribution => {{ ansible_distribution }}"
+          - "ansible_distribution_major_version => {{ ansible_distribution_major_version }}"
+          - "ansible_os_family  => {{ ansible_os_family}}"
+          - "ansible_system  => {{ ansible_system }}"
+
+    - name: "verify ~/.atom filemode"
+      ansible.builtin.file:
+        name: '~/.atom'
+        owner: "root"
+        group: "root"
+        state: directory
+        mode: "0750"
+      register: home_atom
+      failed_when: (home_atom is changed) or (home_atom is failed)
+
+    - name: "Test ~/.atom/config.cson config is generated"
+      ansible.builtin.lineinfile:
+        name: '~/.atom/config.cson'
+        line: '    "*": {'
+        state: present
+      check_mode: true
+      register: atom_config_cson
+      failed_when: (atom_config_cson is changed) or (atom_config_cson is failed)
+
+    - name: "verify ~/.atom filemode"
+      ansible.builtin.file:
+        name: '~/.atom/config.cson'
+        owner: "root"
+        group: "root"
+        mode: "0640"
+      register: mode_atom_config_cson
+      failed_when: (mode_atom_config_cson is changed) or (mode_atom_config_cson is failed)
+
+
+    - name: Check if atom is installed
+      ansible.builtin.package:
+        name: "atom"
+        state: present
+      register: atom_installed
+      failed_when: (atom_installed is changed) or (atom_installed is failed)
