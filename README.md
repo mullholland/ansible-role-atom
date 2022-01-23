@@ -5,6 +5,8 @@
 |[![github](https://github.com/mullholland/ansible-role-atom/workflows/Ansible%20Molecule/badge.svg)](https://github.com/mullholland/ansible-role-atom/actions)|[![gitlab](https://gitlab.com/mullholland/ansible-role-atom/badges/master/pipeline.svg)](https://gitlab.com/mullholland/ansible-role-atom)|[![quality](https://img.shields.io/ansible/quality/unset)](https://galaxy.ansible.com/mullholland/atom)|
 
 Installs and configures the editor from atom.io.
+Allows to create the config an install packages.
+
 
 ## [Role Variables](#role-variables)
 
@@ -105,9 +107,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/m
 
 The minimum version of Ansible required is 2.10, tests have been done to:
 
--   The previous version.
+-   The last 2 versions.
 -   The current version.
--   The development version.
 
 
 
