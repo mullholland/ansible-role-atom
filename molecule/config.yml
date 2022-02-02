@@ -24,10 +24,11 @@ molecule_exceptions:
     reason: "Not used as a Desktop OS by me"
   - variation: amazonlinux
     reason: "Not used as a Desktop OS by me"
+  - variation: fedora33
+    reason: "EOL"
 molecule_scenarios:
   - scenario: "default"
-    ansible: ["2.9", "2.10", "2.11"]
+    ansible: ["2.10", "2.11", "2.12"]
     platforms:
-      - "fedora33"
       - "fedora34"
       - "fedora35"
